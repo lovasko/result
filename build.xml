@@ -1,0 +1,24 @@
+<!-- Copyright (c) 2019 Daniel Lovasko                                     -->
+<!-- All Rights Reserved                                                   -->
+<!--                                                                       -->
+<!-- Distributed under the terms of the 2-clause BSD License. The full     -->
+<!-- license is in the file LICENSE, distributed as part of this software. -->
+
+<project>
+    <target name="clean">
+        <delete dir="obj"/>
+        <delete dir="bin"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="obj"/>
+        <javac srcdir="src" destdir="obj"/>
+    </target>
+
+    <target name="link">
+        <mkdir dir="bin"/>
+        <jar jarfile="bin/result.jar" basedir="obj"/>
+    </target>
+
+    <target name="main" depends="clean,compile,link"/>
+</project>
